@@ -1,0 +1,1 @@
+# Vulnerabilities_Mindmap_Beginer-to-Moderate
