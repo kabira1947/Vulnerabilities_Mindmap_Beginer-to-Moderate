@@ -325,7 +325,7 @@ g.	Content Security Policies (CSP): Implement Content Security Policies in web a
 h.	Regular Security Audits: Conduct regular security audits and code reviews to identify potential SSTI vulnerabilities and other security flaws. Address any identified issues promptly to ensure the application's security.
 i.	 Security Training: Educate developers and stakeholders about SSTI vulnerabilities and secure coding practices. Awareness of potential risks can help the development team take proactive measures to prevent vulnerabilities during development.
 j.	Follow Security Guidelines: Adhere to security guidelines and best practices provided by template engine developers and security communities. These guidelines often include recommendations to prevent SSTI vulnerabilities.
-k.	Implement Web Application Firewall (WAF): Consider deploying a WAF that is capable of detecting and blocking SSTI attack patterns. A WAF can act as an additional layer of defence to filter out potentially malicious requests.
+Hk.	Implement Web Application Firewall (WAF): Consider deploying a WAF that is capable of detecting and blocking SSTI attack patterns. A WAF can act as an additional layer of defence to filter out potentially malicious requests.
 l.	Keep Software Up to Date: Ensure that the application's template engines, web frameworks, and other software components are updated with the latest security patches and updates. This helps protect against known vulnerabilities in third-party libraries.
 m.	Least Privilege Principle: Limit the privileges of the template engine to only the necessary resources and functionality. Avoid running the template engine with excessive permissions that could allow it to execute arbitrary code or access sensitive data.
 
@@ -473,7 +473,6 @@ Polyglot:
 
 24. Mustache:
 •	{{{7*7}}}  Evaluates 7*7 to 49
-
 
 
 
