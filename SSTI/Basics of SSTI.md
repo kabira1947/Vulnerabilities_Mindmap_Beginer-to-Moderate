@@ -1,4 +1,4 @@
-Basic**What is SSTI, and How to Exploit?**
+**What is SSTI, and How to Exploit?**
 
 **Definition:** Server-Side Template Injection (SSTI) is a web application vulnerability where an attacker can inject malicious code into server-side templates. This occurs when unvalidated user input is mistakenly treated as code by the template engine, leading to the execution of the injected payload on the server, potentially allowing unauthorized access and control over the application.
 
