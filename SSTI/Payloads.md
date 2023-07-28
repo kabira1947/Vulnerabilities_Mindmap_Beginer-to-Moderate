@@ -123,5 +123,3 @@ cat urls.txt | gau -subs | grep '=' | egrep -v '(.js|.png|.svg|.gif|.jpg|.jpeg|.
 
 #### Mustache:
 - `{{{7*7}}}`: Evaluates `7*7` to `49`.
-```
-
