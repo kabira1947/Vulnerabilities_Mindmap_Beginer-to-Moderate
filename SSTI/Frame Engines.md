@@ -11,10 +11,14 @@ Key functionalities of template engines include:
 
 ### Examples of Template Engines:
 
-1.	Handlebars: Handlebars.js is a popular template engine that simplifies creating semantic templates with minimal logic. It uses {{}} and {{{}}} for placeholder replacement and provides basic control structures for conditional rendering.
+Here's the text in GitHub Markdown format:
 
-Example Template using Handlebars:
+### Handlebars:
+Handlebars.js is a popular template engine that simplifies creating semantic templates with minimal logic. It uses `{{}}` and `{{{}}}` for placeholder replacement and provides basic control structures for conditional rendering.
 
+**Example Template using Handlebars:**
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +31,14 @@ Example Template using Handlebars:
     {{/each}}
 </body>
 </html>
-2.	EJS (Embedded JavaScript): EJS is a simple templating engine that allows developers to embed JavaScript code directly into the template. It uses <% %> and <%= %> tags for code execution and output rendering.
+```
 
-Example Template using EJS:
+### EJS (Embedded JavaScript):
+EJS is a simple templating engine that allows developers to embed JavaScript code directly into the template. It uses `<% %>` and `<%= %>` tags for code execution and output rendering.
 
+**Example Template using EJS:**
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +51,14 @@ Example Template using EJS:
     <% } %>
 </body>
 </html>
+```
 
-3.	Freemarker: 
+### Freemarker:
 Freemarker is a robust template engine that supports various template languages, including XML, HTML, and plain text. It provides strong control structures, macros, and functions for template customization.
 
-Example Template using Freemarker:
+**Example Template using Freemarker:**
 
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,5 +71,6 @@ Example Template using Freemarker:
     </#list>
 </body>
 </html>
+```
 
 Each template engine has its unique syntax and features, catering to different developer preferences and project requirements. Developers need to be aware of potential vulnerabilities like SSTI and implement secure coding practices to prevent exploitation when using template engines.
