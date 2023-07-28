@@ -1,5 +1,3 @@
-Here's the text in GitHub Markdown format:
-
 ## Types of SSTI Vulnerabilities:
 
 a. **Input Concatenation Vulnerability:**
