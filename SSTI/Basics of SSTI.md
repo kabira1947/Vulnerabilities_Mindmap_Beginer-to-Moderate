@@ -38,7 +38,7 @@ g. **Lack of Security Awareness:** Developers and organizations may need to be m
 
 **Template Syntax:** To exploit SSTI, attackers need to understand the specific syntax and behavior of the template engine used by the web application. Different template engines have their own syntax rules and ways of incorporating dynamic data into templates. By understanding these rules, attackers can manipulate the templates to inject malicious code.
 
-**How to Identify Template SYntax:**
+**How to Identify Template Syntax:**
 
 1. **Source Code Analysis:** Review the application's source code and look for hints or explicit references to the used template engine. Developers often include comments or specific imports related to the template engine. Example: In the source code of a web application, you find the following import statement: `import { Mustache } from 'mustache';`. This indicates that the application is using the Mustache template engine.
 
@@ -110,7 +110,7 @@ i. **Security Training:** Educate developers and stakeholders about SSTI vulnera
 
 j. **Follow Security Guidelines:** Adhere to security guidelines and best practices provided by template engine developers and security communities. These guidelines often include recommendations to prevent SSTI vulnerabilities.
 
-k. **Implement Web Application Firewall (WAF):** Consider deploying a WAF that is capable of detecting and blocking SSTI attack patterns. A WAF can act as an additional layer of defense to filter out potentially malicious requests.
+k. **Implement Web Application Firewall (WAF):** Consider deploying a WAF that is capable of detecting and blocking SSTI attack patterns. A WAF can act as an additional layer of defence to filter out potentially malicious requests.
 
 l. **Keep Software Up to Date:** Ensure that the application's template engines, web frameworks, and other software components are updated with the latest security patches and updates. This helps protect against known vulnerabilities in third-party libraries.
 
@@ -122,7 +122,7 @@ m. **Least Privilege Principle:** Limit the privileges of the template engine to
 
 - **Complex Template Engines:** Modern web applications often use complex template engines to enable dynamic content generation. However, these advanced engines also introduce new attack surfaces for SSTI. Attackers leverage the power of template engines to craft sophisticated payloads and evade detection. For example, attackers may use chained template expressions or nested injections to bypass security filters.
 
-- **Third-Party Libraries:** Many web applications rely on third-party libraries and frameworks, including template engines. SSTI vulnerabilities can also emerge from flaws in these libraries, especially if they are not kept up-to-date or have their security features misconfigured.
+- **Third-Party Libraries:** Many web applications rely on third-party libraries and frameworks, including template engines. SSTI vulnerabilities can also emerge from flaws in these libraries, especially if they need to be kept up-to-date or have their security features misconfigured.
 
 - **Template Language Features:** Template engines provide various features that attackers can misuse to execute arbitrary code. For instance, access to object properties, function calls, or even file system operations may be possible if not adequately controlled.
 
