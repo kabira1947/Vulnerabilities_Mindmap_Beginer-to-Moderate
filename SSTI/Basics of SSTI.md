@@ -20,38 +20,39 @@ SSTI vulnerabilities can have severe consequences, including remote code executi
 **Vulnerability Causes:**
 SSTI vulnerabilities are caused by various factors, including:
 
-a. Insufficient Input Validation: SSTI vulnerabilities occur when web applications fail to properly validate user input before incorporating it into templates. Without proper validation, attackers can inject malicious code or payloads into templates, leading to code execution on the server.
+a. **Insufficient Input Validation:** SSTI vulnerabilities occur when web applications fail to properly validate user input before incorporating it into templates. Without proper validation, attackers can inject malicious code or payloads into templates, leading to code execution on the server.
 
-b. Lack of Output Escaping: Output escaping is a security mechanism that prevents user-supplied data from being interpreted as code. When web applications do not escape user input before rendering it in templates, it can result in SSTI vulnerabilities. Attackers can exploit this to inject malicious code that will be executed when the template is rendered.
+b. **Lack of Output Escaping:** Output escaping is a security mechanism that prevents user-supplied data from being interpreted as code. When web applications do not escape user input before rendering it in templates, it can result in SSTI vulnerabilities. Attackers can exploit this to inject malicious code that will be executed when the template is rendered.
 
-c. Dynamic Template Generation: Template engines combine fixed templates with dynamic data to generate web pages. When the dynamic data is not handled securely, it opens the door to SSTI vulnerabilities. Attackers can manipulate the dynamic data to inject their own code into the templates.
+c. **Dynamic Template Generation:** Template engines combine fixed templates with dynamic data to generate web pages. When the dynamic data is not handled securely, it opens the door to SSTI vulnerabilities. Attackers can manipulate the dynamic data to inject their own code into the templates.
 
-d. Usage of Complex Templating Engines: Some templating engines offer robust features and support user-supplied markup, making them vulnerable to SSTI if not used properly. These features may enable attackers to execute arbitrary code by exploiting the template engine's functionalities.
+d. **Usage of Complex Templating Engines:** Some templating engines offer robust features and support user-supplied markup, making them vulnerable to SSTI if not used properly. These features may enable attackers to execute arbitrary code by exploiting the template engine's functionalities.
 
-e. Failure to Implement Security Mechanisms: Some template engines provide security mechanisms, such as sandboxing or whitelisting, to protect against SSTI. However, vulnerabilities can still occur if these mechanisms are not properly configured or utilized.
+e. **Failure to Implement Security Mechanisms:** Some template engines provide security mechanisms, such as sandboxing or whitelisting, to protect against SSTI. However, vulnerabilities can still occur if these mechanisms are not properly configured or utilized.
 
-f. Frequent Template Customization: Web applications that allow users to customize templates may inadvertently expose themselves to SSTI. If customization is not controlled or sanitized effectively, attackers can inject malicious code through customization features.
+f. **Frequent Template Customization:** Web applications that allow users to customize templates may inadvertently expose themselves to SSTI. If customization is not controlled or sanitized effectively, attackers can inject malicious code through customization features.
 
-g. Lack of Security Awareness: Developers and organizations may need to be made aware of the risks associated with SSTI vulnerabilities or may need more knowledge to implement secure coding practices to prevent such issues.
+g. **Lack of Security Awareness:** Developers and organizations may need to be made aware of the risks associated with SSTI vulnerabilities or may need more knowledge to implement secure coding practices to prevent such issues.
 
 **How to Execute the Attack:**
-a. Template Syntax: To exploit SSTI, attackers need to understand the specific syntax and behavior of the template engine used by the web application. Different template engines have their own syntax rules and ways of incorporating dynamic data into templates. By understanding these rules, attackers can manipulate the templates to inject malicious code.
 
-**How to Identify:**
+**Template Syntax:** To exploit SSTI, attackers need to understand the specific syntax and behavior of the template engine used by the web application. Different template engines have their own syntax rules and ways of incorporating dynamic data into templates. By understanding these rules, attackers can manipulate the templates to inject malicious code.
 
-1. Source Code Analysis: Review the application's source code and look for hints or explicit references to the used template engine. Developers often include comments or specific imports related to the template engine. Example: In the source code of a web application, you find the following import statement: `import { Mustache } from 'mustache';`. This indicates that the application is using the Mustache template engine.
+**How to Identify Template SYntax:**
 
-2. Error Messages: Trigger errors deliberately and observe the error messages. Some template engines may reveal their names or internal details in error messages, giving clues about the template engine in use. Example: By intentionally injecting malformed code into a form field, the application throws an error message like "Template Engine Error: Failed to parse template." This error message suggests that a template engine is in use.
+1. **Source Code Analysis:** Review the application's source code and look for hints or explicit references to the used template engine. Developers often include comments or specific imports related to the template engine. Example: In the source code of a web application, you find the following import statement: `import { Mustache } from 'mustache';`. This indicates that the application is using the Mustache template engine.
 
-3. Template Syntax: Examine the syntax used in the templates. Different template engines have distinct syntax patterns and delimiters. By analyzing these patterns, you can infer the template engine being used. Example: After analyzing the templates, you notice the following syntax: `{{ user.name }}`. This syntax is commonly associated with the Handlebars template engine.
+2. **Error Messages:** Trigger errors deliberately and observe the error messages. Some template engines may reveal their names or internal details in error messages, giving clues about the template engine in use. Example: By intentionally injecting malformed code into a form field, the application throws an error message like "Template Engine Error: Failed to parse template." This error message suggests that a template engine is in use.
 
-4. Request Headers: Look at the response headers received from the server. Some web applications may include headers indicating the template engine or other relevant information. Example: Inspecting the response headers, you find a header like `X-Powered-By: Django/3.2.1`. The presence of "Django" in the header indicates the usage of the Django template engine.
+3. **Template Syntax:** Examine the syntax used in the templates. Different template engines have distinct syntax patterns and delimiters. By analyzing these patterns, you can infer the template engine being used. Example: After analyzing the templates, you notice the following syntax: `{{ user.name }}`. This syntax is commonly associated with the Handlebars template engine.
 
-5. Debug Information: Check for any debug or development information exposed in the application responses. Some template engines may include details about the rendering process or the template engine itself. Example: The application's response contains a comment like `<!-- Rendered using Handlebars -->`. This comment provides valuable insight into the template engine being used.
+4. **Request Headers:** Look at the response headers received from the server. Some web applications may include headers indicating the template engine or other relevant information. Example: Inspecting the response headers, you find a header like `X-Powered-By: Django/3.2.1`. The presence of "Django" in the header indicates the usage of the Django template engine.
 
-6. Default File Extensions: Common template engines have specific file extensions (e.g., .html for Jinja2, .ejs for EJS). You might identify the template engine based on the response by accessing URLs with different file extensions. Example: Accessing URLs with different file extensions (e.g., .html, .ejs, .jinja) and observing the responses can reveal the template engine. If accessing example.com/test.html results in dynamic content, it might indicate the usage of a template engine like Jinja2.
+5. **Debug Information:** Check for any debug or development information exposed in the application responses. Some template engines may include details about the rendering process or the template engine itself. Example: The application's response contains a comment like `<!-- Rendered using Handlebars -->`. This comment provides valuable insight into the template engine being used.
 
-7. Template Markup Tags: Different template engines may have unique markup tags or attributes in their templates. Look for these patterns in the HTML source code. Example: In the HTML source code, you find `<% for(var i=0; i<items.length; i++) { %>`. This syntax indicates the usage of the EJS (Embedded JavaScript) template engine.
+6. **Default File Extensions:** Common template engines have specific file extensions (e.g., .html for Jinja2, .ejs for EJS). You might identify the template engine based on the response by accessing URLs with different file extensions. Example: Accessing URLs with different file extensions (e.g., .html, .ejs, .jinja) and observing the responses can reveal the template engine. If accessing example.com/test.html results in dynamic content, it might indicate the usage of a template engine like Jinja2.
+
+7. **Template Markup Tags:** Different template engines may have unique markup tags or attributes in their templates. Look for these patterns in the HTML source code. Example: In the HTML source code, you find `<% for(var i=0; i<items.length; i++) { %>`. This syntax indicates the usage of the EJS (Embedded JavaScript) template engine.
 
 8. **Online Tools and Libraries:** Some online tools and libraries can automatically detect the template engine based on the input provided. Use these tools for initial analysis. Example: Using an online tool, you input a template snippet, and the tool identifies it as Jinja2. This tool helps in the quick initial analysis of the template engine.
 
