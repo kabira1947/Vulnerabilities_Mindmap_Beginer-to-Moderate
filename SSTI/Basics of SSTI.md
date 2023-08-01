@@ -32,7 +32,7 @@ e. Failure to Implement Security Mechanisms: Some template engines provide secur
 
 f. Frequent Template Customization: Web applications that allow users to customize templates may inadvertently expose themselves to SSTI. If customization is not controlled or sanitized effectively, attackers can inject malicious code through customization features.
 
-g. Lack of Security Awareness: Developers and organizations may not be aware of the risks associated with SSTI vulnerabilities or may not have sufficient knowledge to implement secure coding practices to prevent such issues.
+g. Lack of Security Awareness: Developers and organizations may need to be made aware of the risks associated with SSTI vulnerabilities or may need more knowledge to implement secure coding practices to prevent such issues.
 
 **How to Execute the Attack:**
 a. Template Syntax: To exploit SSTI, attackers need to understand the specific syntax and behavior of the template engine used by the web application. Different template engines have their own syntax rules and ways of incorporating dynamic data into templates. By understanding these rules, attackers can manipulate the templates to inject malicious code.
@@ -83,6 +83,10 @@ b. **Dynamic Application Security Testing (DAST):** DAST tools test web applicat
    - OWASP ZAP
    - Burp Suite
    - Acunetix
+   - SSTIMAP
+   - TPLmap (Discontinued in 2018 but still working in 2023)
+   - TPLmap also has a burp extension in external download (Github) 
+
 
 **Preventive Measures:**
 To prevent SSTI vulnerabilities, web developers should follow best practices, such as:
@@ -97,7 +101,7 @@ d. **Implement Whitelisting:** When using user-supplied data in templates, it is
 
 e. **Disable Code Evaluation:** Avoid using template engines or configurations that allow direct code evaluation. Disable or limit the usage of template directives that execute code on the server. Instead, use safer alternatives for dynamic content rendering.
 
-f. **Strict Template Access Control:** Limit access to template editing and rendering functionalities to authorized personnel only. Avoid giving template customization privileges to end-users without proper validation and controls.
+f. **Strict Template Access Control:** Limit access to template editing and rendering functionalities to authorized personnel only. Only give template customization privileges to end-users with proper validation and controls.
 
 g. **Content Security Policies (CSP):** Implement Content Security Policies in web applications to restrict the sources of content allowed to be rendered in the application. This can help prevent malicious code injection and mitigate the risks of SSTI.
 
