@@ -116,6 +116,7 @@ l. **Keep Software Up to Date:** Ensure that the application's template engines,
 
 m. **Least Privilege Principle:** Limit the privileges of the template engine to only the necessary resources and functionality. Avoid running the template engine with excessive permissions that could allow it to execute arbitrary code or access sensitive data.
 
+
 **Current Trends in SSTI:**
 
 - **Increased Awareness:** With the rise in high-profile security breaches, there is a growing awareness among developers and organizations about the risks of SSTI vulnerabilities. Developers are becoming more cautious about using template engines and are adopting secure coding practices to prevent SSTI.
