@@ -53,21 +53,19 @@ a. Template Syntax: To exploit SSTI, attackers need to understand the specific s
 
 7. Template Markup Tags: Different template engines may have unique markup tags or attributes in their templates. Look for these patterns in the HTML source code. Example: In the HTML source code, you find `<% for(var i=0; i<items.length; i++) { %>`. This syntax indicates the usage of the EJS (Embedded JavaScript) template engine.
 
-8. Online Tools and Libraries: Some online tools and libraries can automatically detect the template engine based on the input provided. Use these tools for initial analysis. Example: Using an online tool, you input a template snippet, and the tool identifies it as Jinja2. This tool helps in the quick initial analysis of the template engine.
+8. **Online Tools and Libraries:** Some online tools and libraries can automatically detect the template engine based on the input provided. Use these tools for initial analysis. Example: Using an online tool, you input a template snippet, and the tool identifies it as Jinja2. This tool helps in the quick initial analysis of the template engine.
 
-b. Payloads: Attackers craft payloads containing malicious code that exploit the template engine's vulnerabilities. These payloads are carefully designed to take advantage of the template's native syntax and execute arbitrary commands on the server. The payload may include template directives, expressions, or functions to achieve remote code execution.
+**b.** **Payloads:** Attackers craft payloads containing malicious code that exploit the template engine's vulnerabilities. These payloads are carefully designed to take advantage of the template's native syntax and execute arbitrary commands on the server. The payload may include template directives, expressions, or functions to achieve remote code execution.
 
 **How to Execute the Attack (Continued):**
 
-b. Payloads (Continued): The payloads created by attackers are tailored to the specific template engine and its vulnerabilities. Some common techniques used in SSTI payloads include:
+- **Template Directives**: Attacker injects template directives or control structures into user input to modify the template's behavior and execute arbitrary code. For example, in Jinja2, an attacker might use the `{{ config.items() }}` payload to enumerate available objects and attributes.
 
-- Template Directives: Attacker injects template directives or control structures into user input to modify the template's behavior and execute arbitrary code. For example, in Jinja2, an attacker might use the `{{ config.items() }}` payload to enumerate available objects and attributes.
+- **Template Expressions:** Attackers use template expressions to access and execute code. For instance, in Handlebars, an attacker might use the payload `{{#with (exec.constructor('return this'))}}`.
 
-- Template Expressions: Attackers use template expressions to access and execute code. For instance, in Handlebars, an attacker might use the payload `{{#with (exec.constructor('return this'))}}`.
+- **Template Functions:** Some template engines allow the use of functions within templates, enabling attackers to execute code. For example, in EJS, an attacker might use the payload `<%= global.process.mainModule.constructor._load('child_process').execSync('ls') %>` to execute the "ls" command.
 
-- Template Functions: Some template engines allow the use of functions within templates, enabling attackers to execute code. For example, in EJS, an attacker might use the payload `<%= global.process.mainModule.constructor._load('child_process').execSync('ls') %>` to execute the "ls" command.
-
-c. Context Awareness: Identifying the context in which user input is used is crucial for successful SSTI exploitation. Attackers must recognize where user-supplied data is directly inserted into templates without proper validation or escaping. It could be in URL parameters, form inputs, or other template data sources.
+c. **Context Awareness:** Identifying the context in which user input is used is crucial for successful SSTI exploitation. Attackers must recognize where user-supplied data is directly inserted into templates without proper validation or escaping. It could be in URL parameters, form inputs, or other template data sources.
 
 **Security Tools and Testing:**
 Security professionals use various security tools and testing techniques to detect and mitigate Server-Side Template Injection (SSTI) vulnerabilities. These tools help identify potential vulnerabilities and assess the effectiveness of preventive measures. Here are some standard security tools and testing methods used for SSTI:
