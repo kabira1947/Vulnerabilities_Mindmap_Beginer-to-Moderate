@@ -40,9 +40,10 @@ API Endpoints: Check to see if any object references in the API requests can be 
 
 A program may have an API endpoint with the name "api.example.com/user/12345" to get user information. Changing the ID to "api.example.com/user/54321" gives an attacker access to the data of another person.
 
-Lastly, you can look for IDOR in the parts on URL, GET, PUT, POST, REST API, GraphQL, IDs in Cookies, in Request Handler, and in Some Functions.
 
-There are dangerous direct object references (IDOR) in the following places:
+
+**Overall,** you can look for IDOR in the parts on URL, GET, PUT, POST, REST API, GraphQL, IDs in Cookies, in Request Handler, and in Some Functions.
+
 
 **1. URL:** A site for sharing files lets users share files by making their own download URLs. If the platform doesn't have the right access rules in place, an attacker could guess or change the URL to get to other users' files.
 
