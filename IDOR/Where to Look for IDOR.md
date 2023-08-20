@@ -29,6 +29,7 @@ Review the roles, permissions, and access control policies of the program. Check
 
 "www.example.com/thread/12345" is an example of a URL for a web forum. An attacker changes the URL to "www.example.com/thread/54321" to view a limited thread and get around restrictions.
 
+**6. File Upload and Download Functionality**
 Check the file upload and download capabilities to see if users can directly view the files they have uploaded through IDOR. Also, check to see if the files you can download contain sensitive information or if there is a way to get around entry restrictions.
 
 The URL "www.example.com/file/67890" is an example of a file-sharing website where users can upload files. A hacker can get into someone else's file by changing the file ID to "www.example.com/file/12345".
@@ -43,7 +44,7 @@ Lastly, you can look for IDOR in the parts on URL, GET, PUT, POST, REST API, Gra
 
 There are dangerous direct object references (IDOR) in the following places:
 
-**URL:** A site for sharing files lets users share files by making their own download URLs. If the platform doesn't have the right access rules in place, an attacker could guess or change the URL to get to other users' files.
+**1. URL:** A site for sharing files lets users share files by making their own download URLs. If the platform doesn't have the right access rules in place, an attacker could guess or change the URL to get to other users' files.
 
 **2. GET Parameters:** An e-commerce site's customers can look at the details of their sales by putting the order ID in the URL. Users can change the order ID parameter and see information about other users' sales if the website doesn't have the right access controls.
 
@@ -55,6 +56,6 @@ There are dangerous direct object references (IDOR) in the following places:
 
 **6. GraphQL:** A social media network can use GraphQL to find out details about a user's profile. If the access control methods aren't set up right, an attacker could change the query settings to get private information about other users.
 
-**IDs in Cookies:** An online site saves the user's session ID in a cookie. If the website doesn't check the user's permission before giving them access to a piece of content, an attacker could change the session ID saved in a cookie and see other users' private messages or account information.
+**7. IDs in Cookies:** An online site saves the user's session ID in a cookie. If the website doesn't check the user's permission before giving them access to a piece of content, an attacker could change the session ID saved in a cookie and see other users' private messages or account information.
 
-**Request Handler:** A web application uses a request handler to handle file downloads. If the application doesn't do enough authorization checks, an attacker can change the file ID parameter in the request to get access to files belonging to other people.
+**8. Request Handler:** A web application uses a request handler to handle file downloads. If the application doesn't do enough authorization checks, an attacker can change the file ID parameter in the request to get access to files belonging to other people.
