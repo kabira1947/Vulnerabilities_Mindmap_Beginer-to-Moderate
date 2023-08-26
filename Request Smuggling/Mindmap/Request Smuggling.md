@@ -56,7 +56,7 @@ Multiple Content-Length headers)
 
 ### 3.	Chunked transfer encoding
 
-- Chunked transfer encoding is a method of transferring data in variable-sized chunks, enabling progressive data transmission and efficient handling of large payloads without knowing the total size beforehand.
+- Chunked transfer encoding transfers data in variable-sized chunks, enabling progressive data transmission and efficient handling of large payloads without knowing the total size beforehand.
 
 ## Process or Technique to Attack
 
@@ -150,7 +150,7 @@ Multiple Content-Length headers)
 
 ### 11.	Data exposure and leakage
 
-## Recent Real Wordl Examples
+## Recent Real-World Examples
 
 ### 1.	HTTP Request Smuggling in AWS Elastic Load Balancer
 
@@ -167,22 +167,22 @@ Multiple Content-Length headers)
 
 ### Microsoft IIS Request Smuggling
 
-- 1.	A vulnerability in IIS server allowed HTTP request smuggling attacks, potentially enabling unauthorized access or code execution.
+- 1.	A vulnerability in the IIS server allowed HTTP request smuggling attacks, potentially enabling unauthorized access or code execution.
 
 ## Mitigations
 
-### 1.	Use secure load balancer/proxy server
+1.	Use a secure load balancer/proxy server
 
-2.	Properly Configure proxy servers  Configure the front-end server to exclusively use HTTP/2 to communicate to back-end systems, as this protocol prevents ambiguity within the boundaries between requests.
+2.	Properly Configure proxy servers  . Configure the front-end server to exclusively use HTTP/2 to communicate with back-end systems, as this protocol prevents ambiguity within the boundaries between requests.
 
 
-3.	Disable Reuse of Back-end connections, so that each back-end request is sent over a separate network connection.
+3.	Disable the Reuse of Back-end connections so that each back-end request is sent over a separate network connection.
 
 4.	Use the same web server software with the same configuration for the front-end and back-end servers.
 
 5.	Implement proper request parsing adhering to HTTP standards.
 
-6.	Deploy Web Application Firewall (WAF) to detect and block smuggling attacks.
+6.	Deploy a Web Application Firewall (WAF) to detect and block smuggling attacks.
 
 7.	Keep server and proxy software up to date
 
